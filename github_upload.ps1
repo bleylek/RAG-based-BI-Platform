@@ -18,4 +18,4 @@ git remote add origin https://github.com/bleylek/RAG-based-BI-Platform.git
 git branch -M master
 git push -u origin master
 
-Write-Host "Projeniz başarıyla GitHub'a yüklendi!" -ForegroundColor Green
+Write-Host "Proje başarıyla GitHub'a yüklendi!" -ForegroundColor Green
