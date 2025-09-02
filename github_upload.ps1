@@ -12,10 +12,10 @@ git commit -m "Initial commit: RAG-based BI Platform"
 
 # 4. GitHub reponuzu uzak repo olarak ekleyin
 # NOT: Aşağıdaki URL'yi kendi GitHub repo URL'nizle değiştirin
-git remote add origin https://github.com/username/controlix-bi.git
+git remote add origin https://github.com/bleylek/RAG-based-BI-Platform.git
 
 # 5. Yerel repo'yu GitHub'a gönderin
-git branch -M main
-git push -u origin main
+git branch -M master
+git push -u origin master
 
 Write-Host "Projeniz başarıyla GitHub'a yüklendi!" -ForegroundColor Green
