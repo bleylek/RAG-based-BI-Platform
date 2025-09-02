@@ -10,8 +10,9 @@ git add .
 # 3. İlk commit'i oluşturun
 git commit -m "Initial commit: RAG-based BI Platform"
 
-# 4. GitHub reponuzu uzak repo olarak ekleyin
-# NOT: Aşağıdaki URL'yi kendi GitHub repo URL'nizle değiştirin
+# 4. GitHub reponuzu uzak repo olarak ayarlayın
+# NOT: Halihazırda bir remote varsa, önce kaldırıp yeniden ekliyoruz
+git remote remove origin
 git remote add origin https://github.com/bleylek/RAG-based-BI-Platform.git
 
 # 5. Yerel repo'yu GitHub'a gönderin
