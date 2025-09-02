@@ -1,0 +1,118 @@
+<!-- templates/offer_results.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklif Karşılaştırma Sonuçları</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .result-box {
+            background-color: #ffffff10;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .result-box h2 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .result-box p {
+            white-space: pre-wrap;
+            font-size: 1.05em;
+            color: #f1f1f1;
+        }
+
+        .btn-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            width: 100%;
+            background-color: #27ae60;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #ffffffaa;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .result-box {
+                padding: 20px;
+            }
+
+            .btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📊 AI Destekli Teklif Karşılaştırması</h1>
+
+    <div class="result-box">
+        <h2>🧠 AI Yorum:</h2>
+        <p>{{ evaluation }}</p>
+    </div>
+
+    <div class="btn-area">
+        <a class="btn" href="/">⬅ Ana Sayfa</a>
+        <a class="btn" href="/offers">📁 Yeni Teklif Karşılaştır</a>
+    </div>
+
+    <footer>© 2025 Controlix BI Platform – Developed by Controlix</footer>
+
+</body>
+</html>

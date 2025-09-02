@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}AI Destekli Karşılaştırma Platformu{% endblock %}
+
+{% block styles %}
+    ul {
+        list-style: none;
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    li a {
+        display: block;
+        background-color: #ffffff10;
+        border: 2px solid #ffffff30;
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 15px 25px;
+        font-size: 1.1em;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    li a:hover {
+        background-color: #ffffff25;
+        transform: scale(1.03);
+        border-color: #ffffff60;
+    }
+
+    @media (max-width: 600px) {
+        li a {
+            font-size: 1em;
+            padding: 12px 20px;
+        }
+    }
+{% endblock %}
+
+{% block content %}
+    <h1>🚀 Hoş Geldiniz</h1>
+    <p>AI Destekli Karar Destek Platformu'na giriş yapın:</p>
+
+    <ul>
+        <li><a href="/upload">📄 CV Karşılaştırma Uygulaması</a></li>
+        <li><a href="/offers">📑 Teklif Karşılaştırma Modülü</a></li>
+        <li><a href="/contracts">📑 Sözleşme Karşılaştırma Modülü</a></li>
+        <li><a href="/message">💬 Mail/Mesaj Oluşturucu</a></li>
+        <li><a href="{{ url_for('main.about_platform') }}">🧠 Neden Bizim Platformumuz?</a></li>
+    </ul>
+{% endblock %}
+</body>
+</html>

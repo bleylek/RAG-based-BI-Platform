@@ -1,0 +1,156 @@
+<!-- templates/message_form.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mesaj Oluşturucu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #ffffff10;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select,
+        input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #ffffff20;
+            color: #fff;
+        }
+
+        input[type="range"] {
+            background-color: transparent;
+            margin-top: 5px;
+        }
+
+        textarea::placeholder,
+        input::placeholder {
+            color: #dddddd;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: #ddd;
+            margin-top: 5px;
+        }
+
+        .btn {
+            margin-top: 30px;
+            padding: 12px 20px;
+            width: 100%;
+            background-color: #27ae60;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #ffffffaa;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            .btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>✍️ AI Destekli Otomatik Mesaj Oluştur</h1>
+    <form method="post">
+        <label for="topic">📌 Mesajın Konusu</label>
+        <textarea id="topic" name="topic" rows="3" placeholder="Örn: Tatil planı hakkında bilgi vermek, iş teklifi kabulü vs."></textarea>
+
+        <label for="recipient">👤 Kime Mesaj Gönderiyorsun?</label>
+        <select id="recipient" name="recipient">
+            <option>Arkadaşım</option>
+            <option>Ailemden biri</option>
+            <option>Patronum</option>
+            <option>İş Arkadaşım</option>
+            <option>Yeni Tanıştığım Biri</option>
+            <option>Teklif Aldığımız Kurum Temsilcisi</option>
+            <option>Herkese Açık (LinkedIn, Instagram vs.)</option>
+        </select>
+
+        <label for="tone">🎭 Mesajın Samimiyet / Resmiyet Düzeyi</label>
+        <input type="range" id="tone" name="tone" min="0" max="100" value="50">
+        <div class="slider-labels">
+            <span>😄 Samimi</span>
+            <span>🎯 Dengeli</span>
+            <span>📎 Resmi</span>
+        </div>
+
+        <label for="min_words">🔢 Minimum Kelime Sayısı</label>
+        <input type="number" id="min_words" name="min_words" value="30" min="10" max="500">
+
+        <label for="max_words">🔢 Maksimum Kelime Sayısı</label>
+        <input type="number" id="max_words" name="max_words" value="100" min="10" max="1000">
+
+        <label for="extra">📝 Ekstra Notlar (Opsiyonel)</label>
+        <textarea id="extra" name="extra" rows="3" placeholder="Örn: Mesajda espri olsun, kısa olsun, güven versin gibi..."></textarea>
+
+        <button class="btn" type="submit">✨ Mesajı Oluştur</button>
+    </form>
+
+    <footer>© 2025 Controlix BI Platform – Developed by Controlix</footer>
+</body>
+</html>

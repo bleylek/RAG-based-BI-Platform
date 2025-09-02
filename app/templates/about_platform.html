@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+
+{% block title %}Neden Controlix BI Platformu?{% endblock %}
+
+{% block styles %}
+    .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    .section {
+        margin-bottom: 40px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        color: #ffffff;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .section-title i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+    }
+    
+    .section-content {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .advantage-item {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        position: relative;
+    }
+    
+    .advantage-item:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #4ca1af;
+    }
+    
+    .advantage-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #4ca1af;
+    }
+    
+    .tech-details {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .comparison-table th {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .comparison-table tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .comparison-table tr:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    .badge-primary {
+        background-color: #4ca1af;
+    }
+    
+    .badge-secondary {
+        background-color: #2c3e50;
+    }
+    
+    .highlight {
+        background: linear-gradient(90deg, rgba(76, 161, 175, 0.3), transparent);
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+    
+    .action-button {
+        display: inline-block;
+        background: linear-gradient(45deg, #4ca1af, #2c3e50);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .action-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .emoji-bullet {
+        display: inline-block;
+        width: 25px;
+        text-align: center;
+        margin-right: 5px;
+    }
+
+    .limitation-block {
+        background-color: rgba(220, 53, 69, 0.1);
+        border-left: 3px solid rgba(220, 53, 69, 0.5);
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .solution-block {
+        background-color: rgba(25, 135, 84, 0.1);
+        border-left: 3px solid rgba(25, 135, 84, 0.5);
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .usage-scenario {
+        background-color: rgba(13, 110, 253, 0.1);
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #4ca1af;
+        margin: 30px 0 15px 0;
+    }
+
+    ul.clean-list {
+        list-style: none;
+        padding-left: 10px;
+    }
+
+    ul.clean-list li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+    }
+
+    ul.clean-list li:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: #4ca1af;
+        font-size: 1.2em;
+    }
+
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 300;
+    }
+{% endblock %}
+
+{% block content %}
+    <h1>🧠 Neden Controlix BI Platformu?</h1>
+    <p class="page-subtitle">RAG Destekli, Güvenilir ve Ölçeklenebilir Karar Destek Sistemi</p>
+    
+    <div class="about-container">
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-rocket"></i>Platformumuz Hakkında</h2>
+            <div class="section-content">
+                <p>Controlix BI, yapay zeka destekli <span class="highlight">Retrieval-Augmented Generation (RAG)</span> mimarisi üzerine kurulmuş yenilikçi bir karar destek platformudur. Klasik LLM (ChatGPT vb.) çözümlerinin ötesine geçerek, şirketinize özgü belgeler ve veriler üzerinden güvenilir, hızlı ve odaklı analizler sunar.</p>
+                <p>Bu sayede şirketler, günler sürecek analizleri dakikalar içinde tamamlayabilir, hatalı veya eksik yorum riskini ortadan kaldırabilir.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-times-circle"></i>Klasik LLM'lerin Sınırlılıkları</h2>
+            <div class="section-content">
+                <div class="limitation-block">
+                    <div class="advantage-title">Dosya Yükleme Limiti</div>
+                    <ul class="clean-list">
+                        <li>ChatGPT gibi modeller en fazla 10 dosya analiz edebilir.</li>
+                        <li>Oysa iş dünyasında yüzlerce sözleşme, teklif ya da CV aynı anda masaya gelir.</li>
+                    </ul>
+                </div>
+                
+                <div class="limitation-block">
+                    <div class="advantage-title">Prompt Yazma Zorunluluğu</div>
+                    <ul class="clean-list">
+                        <li>Doğru cevabı almak için kullanıcıların karmaşık komutlar (promptlar) yazması gerekir.</li>
+                        <li>Bu, teknik bilgiye sahip olmayan ekipler için ciddi bir bariyerdir.</li>
+                    </ul>
+                </div>
+                
+                <div class="limitation-block">
+                    <div class="advantage-title">Güvenilirlik Sorunu (Hallucination)</div>
+                    <ul class="clean-list">
+                        <li>LLM'ler zaman zaman hayali veya yanlış bilgiler üretebilir.</li>
+                        <li>Kritik iş kararlarında bu büyük bir risktir.</li>
+                    </ul>
+                </div>
+                
+                <div class="limitation-block">
+                    <div class="advantage-title">Güncel Olmayan Bilgi</div>
+                    <ul class="clean-list">
+                        <li>Modeller, eğitim tarihine kadar olan bilgilerle sınırlıdır.</li>
+                        <li>Şirketinizin güncel verilerine erişemez.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-check-circle"></i>Bizim Çözümümüz: RAG Tabanlı BI Platformu</h2>
+            <div class="section-content">
+                <div class="tech-details">
+                    <strong>RAG nedir?</strong>
+                    <p>RAG, yapay zekânın yanıtlarını sizin verilerinizle besleyen bir yöntemdir. Model cevap üretirken, dışarıdan güncel ve doğru bilgi çağırır.</p>
+                </div>
+                
+                <div class="solution-block" style="margin-top: 20px;">
+                    <div class="advantage-title">Avantajlarımız:</div>
+                    <ul class="clean-list">
+                        <li>Yüzlerce dosyayı aynı anda yükleyebilirsiniz.</li>
+                        <li>Hiçbir prompt yazmadan tek tıkla analiz başlatabilirsiniz.</li>
+                        <li>Sonuçlar yalnızca sizin belgelerinize dayanır: güvenilir, odaklı ve hızlıdır.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-cogs"></i>Teknik Gücümüz</h2>
+            <div class="section-content">
+                <ul class="clean-list">
+                    <li><span class="badge badge-primary">Vektör Veritabanı</span> FAISS ile yüksek boyutlu vektör araması → milyonlarca belgeyi milisaniyeler içinde tarar.</li>
+                    <li><span class="badge badge-primary">Embedding Modelleri</span> OpenAI'nin text-embedding-3-small modeliyle yüksek kaliteli metin temsilleri.</li>
+                    <li><span class="badge badge-primary">LLM Entegrasyonu</span> GPT-4 gibi güçlü dil modelleriyle kontrollü içerik üretimi.</li>
+                    <li><span class="badge badge-primary">Flask Backend</span> Python tabanlı, hafif ve hızlı web altyapısı.</li>
+                    <li><span class="badge badge-primary">Güvenlik</span> Veriler şirket içinde kalır. LLM'e yalnızca gerekli özet bağlam gönderilir, ham veriler paylaşılmaz.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-search"></i>Somut Kullanım Senaryoları</h2>
+            <div class="section-content">
+                <div class="usage-scenario">
+                    <h3 class="advantage-title"><span class="emoji-bullet">👥</span> İnsan Kaynakları – CV Analizi</h3>
+                    <ul class="clean-list">
+                        <li>500 CV'yi yükleyin.</li>
+                        <li>Sistem otomatik olarak adayları uygunluk oranına göre sıralasın.</li>
+                        <li>Örnek: "Python ve AWS deneyimi var, ilana %85 uyumlu."</li>
+                    </ul>
+                </div>
+                
+                <div class="usage-scenario">
+                    <h3 class="advantage-title"><span class="emoji-bullet">💰</span> Satın Alma – Teklif Karşılaştırma</h3>
+                    <ul class="clean-list">
+                        <li>100 farklı tedarikçi teklifini tek tıkla analiz edin.</li>
+                        <li>Fiyat, teslim süresi ve garanti koşulları tablo halinde karşınıza gelsin.</li>
+                        <li>En avantajlı teklif anında ortaya çıksın.</li>
+                    </ul>
+                </div>
+                
+                <div class="usage-scenario">
+                    <h3 class="advantage-title"><span class="emoji-bullet">⚖️</span> Hukuk – Sözleşme Analizi</h3>
+                    <ul class="clean-list">
+                        <li>Onlarca sözleşmeyi aynı anda yükleyin.</li>
+                        <li>Sistem kritik riskleri işaretlesin: "Garanti maddesi eksik", "Cezai şart çok yüksek".</li>
+                        <li>Tek sayfalık özetle yöneticilerinize raporlayın.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-chart-bar"></i>Avantajlarımızın Özeti</h2>
+            <div class="section-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Özellik</th>
+                            <th>ChatGPT gibi LLM'ler</th>
+                            <th>Controlix BI (RAG Tabanlı)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dosya sayısı</td>
+                            <td>Maks. 10</td>
+                            <td>Yüzlerce / sınırsız</td>
+                        </tr>
+                        <tr>
+                            <td>Kullanım kolaylığı</td>
+                            <td>Prompt zorunlu</td>
+                            <td>Tek tıkla otomatik analiz</td>
+                        </tr>
+                        <tr>
+                            <td>Doğruluk</td>
+                            <td>Hayali cevap riski</td>
+                            <td>Sadece sizin verinize dayalı</td>
+                        </tr>
+                        <tr>
+                            <td>Hız</td>
+                            <td>Uzun, dağınık yanıtlar</td>
+                            <td>Odaklı, özet ve anlaşılır</td>
+                        </tr>
+                        <tr>
+                            <td>Güncellik</td>
+                            <td>Eğitim verisiyle sınırlı</td>
+                            <td>Anlık yüklenen verilerle güncel</td>
+                        </tr>
+                        <tr>
+                            <td>İş uyumu</td>
+                            <td>Genel amaçlı</td>
+                            <td>İK, hukuk, satın alma için özel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-lightbulb"></i>İş Etkisi</h2>
+            <div class="section-content">
+                <ul class="clean-list">
+                    <li><strong>Zaman Tasarrufu:</strong> Günler süren analizleri dakikalar içinde tamamlar.</li>
+                    <li><strong>Hata Riskini Azaltır:</strong> Hayali bilgiler yerine belgelerinizden doğrulanan sonuçlar sunar.</li>
+                    <li><strong>Kolay Kullanım:</strong> Teknik bilgi gerekmez, herkes tek tıkla kullanabilir.</li>
+                    <li><strong>Ölçeklenebilirlik:</strong> Binlerce belgeyi aynı performansla işler.</li>
+                    <li><strong>Maliyet Avantajı:</strong> Küçük ama optimize edilmiş modellerle çalışır.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-flag-checkered"></i>Sonuç</h2>
+            <div class="section-content">
+                <p>ChatGPT gibi LLM'ler günlük kullanım için faydalıdır, ancak iş dünyasının özel ihtiyaçlarını karşılamakta sınırlıdır.</p>
+                
+                <p>Controlix BI Platformu ise:</p>
+                <ul class="clean-list">
+                    <li>Daha güvenilir,</li>
+                    <li>Daha hızlı,</li>
+                    <li>Daha odaklı,</li>
+                    <li>Daha güvenli,</li>
+                    <li>Ve sınırsız ölçeklenebilir.</li>
+                </ul>
+                
+                <div class="tech-details" style="margin-top: 20px; text-align: center;">
+                    <p><strong>Kısacası:</strong></p>
+                    <p>"ChatGPT = Genel amaçlı zeka, Controlix BI = İş dünyası için özel tasarlanmış akıllı asistan."</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-content" style="text-align: center;">
+                <p>Controlix BI ile iş kararlarınızı güvenle alın.</p>
+                <a href="{{ url_for('main.index') }}" class="action-button">Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

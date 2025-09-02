@@ -1,0 +1,131 @@
+<!-- templates/offer_upload.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklif Karşılaştırma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #ffffff10;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #ffffff20;
+            color: #fff;
+        }
+
+        textarea::placeholder {
+            color: #ddd;
+        }
+
+        .btn {
+            margin-top: 30px;
+            padding: 12px 20px;
+            width: 100%;
+            background-color: #27ae60;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        a {
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ddd;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #ffffffaa;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            .btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📄 AI Destekli Teklif Karşılaştırma</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label for="offer_files">📁 Teklif Dosyaları (PDF, DOCX, TXT)</label>
+        <input type="file" id="offer_files" name="offer_files" multiple required>
+
+        <label for="metrics">📊 Karşılaştırma Metrikleri (virgül ile ayırın)</label>
+        <textarea id="metrics" name="metrics" rows="4" placeholder="Fiyat, Teslim Süresi, Garanti Süresi, Teknik Destek"></textarea>
+
+        <button class="btn" type="submit">✨ Karşılaştırmayı Başlat</button>
+    </form>
+
+    <a href="/">⬅ Ana Sayfa</a>
+
+    <footer>© 2025 Controlix BI Platform – Developed by Controlix</footer>
+
+</body>
+</html>

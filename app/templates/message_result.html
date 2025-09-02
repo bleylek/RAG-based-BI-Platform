@@ -1,0 +1,102 @@
+<!-- templates/message_result.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mesaj Sonucu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .message-box {
+            background-color: #ffffff10;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 100%;
+            white-space: pre-wrap;
+            font-size: 1.1em;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-area {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #ffffffaa;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .message-box {
+                font-size: 1em;
+                padding: 20px;
+            }
+
+            .btn {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>📨 Oluşturulan Mesaj</h1>
+
+    <div class="message-box">
+        {{ message|safe }}
+    </div>
+
+    <div class="btn-area">
+        <a class="btn" href="/">⬅ Ana Sayfa</a>
+        <a class="btn" href="/message">✏ Yeni Mesaj Oluştur</a>
+    </div>
+
+    <footer>© 2025 Controlix BI Platform – Developed by Controlix</footer>
+</body>
+</html>

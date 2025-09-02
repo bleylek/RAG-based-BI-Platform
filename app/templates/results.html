@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}AI Sonucu{% endblock %}
+
+{% block styles %}
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .result-box {
+            background-color: #ffffff10;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 100%;
+            white-space: pre-wrap;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .btn-area {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            padding: 12px;
+            text-align: center;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        @media (max-width: 600px) {
+            .result-box {
+                padding: 20px;
+                font-size: 1em;
+            }
+
+            .btn {
+                font-size: 1em;
+            }
+        }
+{% endblock %}
+
+{% block content %}
+    <h1>📊 AI CV Karşılaştırma Sonucu</h1>
+
+    <div class="result-box">
+        {{ answer }}
+    </div>
+
+    <div class="btn-area">
+        <a class="btn" href="/upload">📄 Yeni Karşılaştırma Yap</a>
+        <a class="btn" href="/home">⬅ Ana Sayfa</a>
+    </div>
+{% endblock %}
