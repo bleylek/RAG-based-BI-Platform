@@ -1,7 +1,7 @@
 # app/rag/llm_answerer.py
 import openai
 from app.config import OPENAI_API_KEY
-
+from typing import List, Dict, Any, Optional, Union
 
 openai.api_key = OPENAI_API_KEY
 
@@ -45,7 +45,7 @@ def generate_answer(context, job_description, query):
     return response.choices[0].message.content.strip()
 
 #teklif için
-def generate_offer_summary_dynamic(offer_texts: list[str], metrics: str) -> str:
+def generate_offer_summary_dynamic(offer_texts: List[str], metrics: str) -> str:
     prompt = f"Kullanıcı, aşağıdaki metriklere göre teklifler arasında karşılaştırma istiyor:\n→ {metrics.strip()}\n\n"
 
     for i, text in enumerate(offer_texts, 1):
@@ -65,7 +65,7 @@ def generate_offer_summary_dynamic(offer_texts: list[str], metrics: str) -> str:
     return response.choices[0].message.content.strip()
 
 # sözleşmeler için
-def compare_contracts_llm(contracts: list[dict]):
+def compare_contracts_llm(contracts: List[Dict[str, Any]]):
     contract_block = "\n\n".join(
         [f"<Sözleşme {i+1} – {c['name']}>\n{c['text']}" for i, c in enumerate(contracts)]
     )

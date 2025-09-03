@@ -4,6 +4,7 @@ from app.config import OPENAI_API_KEY
 import openai
 import numpy as np
 import faiss
+from typing import List, Dict, Any
 
 openai.api_key = OPENAI_API_KEY
 
@@ -17,7 +18,7 @@ def get_embeddings(texts):
     )
     return np.array([r.embedding for r in response.data], dtype="float32")
 
-def generate_contract_comparison(contracts: list[dict]) -> str:
+def generate_contract_comparison(contracts: List[Dict[str, Any]]) -> str:
     """
     Sözleşmeleri RAG tekniği ile karşılaştırır.
     
