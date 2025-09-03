@@ -15,10 +15,22 @@ def create_app():
     
     # Uygulama kontekstinde veritabanını oluşturma
     with app.app_context():
-        db.create_all()
+        try:
+            db.create_all()
+            print("Veritabanı başarıyla oluşturuldu.")
+        except Exception as e:
+            print(f"Veritabanı oluşturma hatası: {e}")
+            # Veritabanı dosyası erişim izinlerini kontrol et
+            import os
+            db_path = app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')
+            print(f"Veritabanı yolu: {db_path}")
+            if os.path.exists(db_path):
+                print(f"Veritabanı dosyası mevcut, izinler: {os.stat(db_path)}")
+            else:
+                print(f"Veritabanı dosyası bulunamadı. Dizin içeriği: {os.listdir(os.path.dirname(db_path) if os.path.dirname(db_path) else '.')}")
         
     mail.init_app(app)
-
+    
     from .routes.main_routes import main_bp
     from .routes.rag_routes import rag_bp
     from .routes.offer_routes import offer_bp

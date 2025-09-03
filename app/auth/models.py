@@ -1,5 +1,3 @@
-# Kullanıcı modelini tanımlıyoruz bu dosyada
-
 # app/auth/models.py
 from flask_sqlalchemy import SQLAlchemy # SQLAlchemy: Flask ile entegre çalışan ORM (Object-Relational Mapper) kütüphanesidir. Python sınıflarını veri tabanı tablolarına dönüştürür.
 from datetime import datetime # datetime: Kullanıcı oluşturulma tarihini kaydetmek için kullanılır.
@@ -13,6 +11,14 @@ class User(db.Model): # User sınıfı, veritabanında bir "users" tablosuna kar
     password_hash = db.Column(db.String(128), nullable=False) # Şifrenin kendisi değil, hashlenmiş versiyonu burada tutulur. Güvenlik amacıyla düz şifre saklanmaz.
     is_verified = db.Column(db.Boolean, default=False) # Kullanıcının e-posta doğrulamasını yapıp yapmadığını tutan boolean (doğru/yanlış) değer. Varsayılan olarak False.
     created_at = db.Column(db.DateTime, default=datetime.utcnow) # Kullanıcının kayıt olduğu zaman. Varsayılan olarak şu anki UTC zamanı ile atanır.
+
+class User(db.Model, UserMixin): # User sınıfı, veritabanında bir "users" tablosuna karşılık gelir.
+    id = db.Column(db.Integer, primary_key=True) # Her kullanıcıya özel bir birincil anahtar (primary key) olan tamsayı ID.
+    email = db.Column(db.String(120), unique=True, nullable=False) # Maksimum 120 karakter uzunluğunda, benzersiz ve boş geçilemez e-posta alanı.
+    password_hash = db.Column(db.String(128), nullable=False) # Şifrenin kendisi değil, hashlenmiş versiyonu burada tutulur. Güvenlik amacıyla düz şifre saklanmaz.
+    is_verified = db.Column(db.Boolean, default=False) # Kullanıcının e-posta doğrulamasını yapıp yapmadığını tutan boolean (doğru/yanlış) değer. Varsayılan olarak False.
+    created_at = db.Column(db.DateTime, default=datetime.utcnow) # Kullanıcının kayıt olduğu zaman. Varsayılan olarak şu anki UTC zamanı ile atanır.
+    is_admin = db.Column(db.Boolean, default=False) # Kullanıcının admin yetkisine sahip olup olmadığını belirten alan.
 
     # Şifre Belirleme
     def set_password(self, password):
