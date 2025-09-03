@@ -98,6 +98,35 @@ RAG (Retrieval Augmented Generation) tabanlı, iş dünyası için özel tasarla
    docker compose up -d
    ```
 
+### Sunucuda Sürekli Çalışma
+
+Uygulamanın sunucuda sürekli çalışması için:
+
+1. Docker'ı sistemin başlangıcında otomatik başlatın:
+   ```bash
+   sudo systemctl enable docker
+   sudo systemctl start docker
+   ```
+
+2. Uygulamayı ilk çalıştırmadan sonra bir admin hesabı oluşturun:
+   ```bash
+   # Linux/Mac için
+   ./init_container.sh admin@example.com guclu_sifre
+   
+   # Windows PowerShell için
+   ./init_container.ps1 -AdminEmail admin@example.com -AdminPassword guclu_sifre
+   ```
+
+3. Systemd ile sürekli çalışma için kurulum yapın:
+   ```bash
+   sudo cp rag-bi-platform.service /etc/systemd/system/
+   sudo systemctl daemon-reload
+   sudo systemctl enable rag-bi-platform
+   sudo systemctl start rag-bi-platform
+   ```
+
+Daha detaylı bilgi için `CONTINUOUS_RUNNING.md` dosyasını inceleyebilirsiniz.
+
 ## Kullanıcı Yönetimi
 
 Platform, kullanıcı hesaplarını yerel SQLite veritabanında saklar. Kullanıcıları görüntülemek ve yönetmek için aşağıdaki araçları kullanabilirsiniz:
