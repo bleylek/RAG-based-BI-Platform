@@ -20,17 +20,16 @@ RAG (Retrieval Augmented Generation) tabanlı, iş dünyası için özel tasarla
 - **Embeddings**: Sentence Transformers
 - **Kimlik Doğrulama**: Argon2, Email Doğrulama
 - **Frontend**: HTML/CSS/JS, Jinja2 Templates
-- **Deployment**: Docker, Gunicorn
+- **Deployment**: Gunicorn
 
 ## Kurulum
 
 ### Gereksinimler
 
 - Python 3.10+
-- Docker ve Docker Compose (Docker ile kurulum için)
 - OpenAI API Anahtarı
 
-### Yerel Kurulum
+### Kurulum
 
 1. Repository'yi klonlayın:
    ```
@@ -73,51 +72,11 @@ RAG (Retrieval Augmented Generation) tabanlı, iş dünyası için özel tasarla
    python run.py
    ```
 
-### Docker ile Kurulum (Önerilen)
-
-1. Repository'yi klonlayın:
-   ```
-   git clone https://github.com/bleylek/RAG-based-BI-Platform.git
-   cd RAG-based-BI-Platform
-   ```
-
-2. Sağlanan build scriptini kullanarak Docker ortamını oluşturun:
-
-   **Windows PowerShell:**
-   ```
-   # Otomatik kurulum ve çalıştırma
-   .\docker-build.ps1
-   
-   # VEYA Docker yönetim scriptini kullanarak
-   .\docker-manage.ps1 start
-   ```
-
-   **Linux/Mac:**
-   ```
-   # Docker Compose ile direkt başlatma
-   docker compose up -d
-   ```
-
 ### Sunucuda Sürekli Çalışma
 
 Uygulamanın sunucuda sürekli çalışması için:
 
-1. Docker'ı sistemin başlangıcında otomatik başlatın:
-   ```bash
-   sudo systemctl enable docker
-   sudo systemctl start docker
-   ```
-
-2. Uygulamayı ilk çalıştırmadan sonra bir admin hesabı oluşturun:
-   ```bash
-   # Linux/Mac için
-   ./init_container.sh admin@example.com guclu_sifre
-   
-   # Windows PowerShell için
-   ./init_container.ps1 -AdminEmail admin@example.com -AdminPassword guclu_sifre
-   ```
-
-3. Systemd ile sürekli çalışma için kurulum yapın:
+1. Systemd servisi oluşturun ve başlatın:
    ```bash
    sudo cp rag-bi-platform.service /etc/systemd/system/
    sudo systemctl daemon-reload
@@ -131,76 +90,19 @@ Daha detaylı bilgi için `CONTINUOUS_RUNNING.md` dosyasını inceleyebilirsiniz
 
 Platform, kullanıcı hesaplarını yerel SQLite veritabanında saklar. Kullanıcıları görüntülemek ve yönetmek için aşağıdaki araçları kullanabilirsiniz:
 
-### Yerel Kullanıcı Yönetimi
-
-Yerel geliştirme ortamında çalışırken:
+### Kullanıcı Yönetimi
 
 ```bash
 # Tüm kullanıcıları listele
 python list_users.py
 
-# Kullanıcı ekle (doğrulanmış ve admin olarak)
-python update_db.py add admin@example.com password123 --verified --admin
-
-# Admin yetkisi ver/al
-python update_db.py admin user@example.com  # Admin yetkisi ver
-python update_db.py admin user@example.com --remove  # Admin yetkisini kaldır
+# Kullanıcı ekle (opsiyonel olarak doğrulanmış)
+python create_user.py user@example.com password123 --verified
 ```
 
-### Docker Kullanıcı Yönetimi
+## Uygulama Erişimi
 
-Docker container'ında çalışırken:
-
-```bash
-# Tüm kullanıcıları listele
-python docker_users.py list
-
-# Belirli bir container'daki kullanıcıları listele
-python docker_users.py --container [CONTAINER_ID] list
-
-# Yeni kullanıcı ekle
-python docker_users.py add user@example.com password123 --verified
-
-# Admin yetkisi ver/al
-python docker_users.py admin user@example.com  # Admin yetkisi ver
-python docker_users.py admin user@example.com --remove  # Admin yetkisini kaldır
-```
-
-3. Tarayıcınızdan `http://localhost:8080` adresine gidin
-
-## Docker Yönetim Araçları
-
-Uygulama için çeşitli Docker yönetim scriptleri sağlanmıştır:
-
-- **docker-build.ps1**: Optimizasyonlar ile Docker imajını oluşturur ve başlatır
-- **docker-cleanup.ps1**: Docker kaynaklarını temizleyerek disk alanı kazandırır
-- **docker-manage.ps1**: Temel konteyner yönetimi için yardımcı araç
-
-Yönetim scripti kullanımı:
-```powershell
-# Konteyner durumunu göster
-.\docker-manage.ps1 status
-
-# Konteyneri başlat
-.\docker-manage.ps1 start
-
-# Konteyneri durdur
-.\docker-manage.ps1 stop
-
-# Logları görüntüle
-.\docker-manage.ps1 logs
-```
-
-## Docker Optimizasyonları
-
-Bu proje, performans ve güvenilirlik için çeşitli Docker optimizasyonları içerir:
-
-- **Multi-stage builds**: Daha küçük final imaj boyutu için
-- **Layer caching**: Daha hızlı build süreleri için akıllı katmanlama
-- **Health checks**: Uygulamanın durumunu izlemek için
-- **Volume mounts**: Veri kalıcılığı için
-- **Resource limits**: Sistem kaynaklarını yönetmek için
-- **Non-root user**: Güvenlik için düşük yetkili kullanıcı
+Uygulama çalıştırıldıktan sonra tarayıcınızdan `http://localhost:5000` adresine giderek erişebilirsiniz.
 
 ## Kullanım
 
@@ -212,22 +114,11 @@ Bu proje, performans ve güvenilirlik için çeşitli Docker optimizasyonları i
    - Sözleşme Karşılaştırma ve Analizi
    - Mail/Mesaj Oluşturma ve Düzenleme
 
-## Docker Sorun Giderme
-
-Eğer Docker kurulumunda sorunlarla karşılaşıyorsanız:
-
-1. Docker servisinin çalıştığından emin olun
-2. Temiz bir build için `docker-cleanup.ps1` scriptini çalıştırın
-3. Logları kontrol edin: `docker compose logs`
-4. Sistem kaynaklarınızın yeterli olduğundan emin olun (özellikle bellek)
-5. Docker disk alanı kullanımını kontrol edin: `docker system df`
-
 ## Geliştirme
 
 1. Değişikliklerinizi yapın
 2. Geliştirme ortamında test edin
-3. Docker ile test edin: `.\docker-build.ps1`
-4. Pull request gönderin
+3. Pull request gönderin
 
 ## Lisans
 

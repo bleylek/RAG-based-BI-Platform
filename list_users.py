@@ -20,14 +20,12 @@ def list_users(db_path="instance/app.db"):
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
-        # Kullanıcı tablosunun yapısını kontrol et
+        # Tablonun yapısını kontrol et
         cursor.execute("PRAGMA table_info(user)")
         columns = [col[1] for col in cursor.fetchall()]
         
         # Kullanıcıları sorgula
         query = "SELECT id, email, is_verified, created_at"
-        if "is_admin" in columns:
-            query += ", is_admin"
         query += " FROM user"
         
         cursor.execute(query)
@@ -37,15 +35,11 @@ def list_users(db_path="instance/app.db"):
             # PrettyTable ile güzel görünümlü bir tablo oluştur
             user_table = PrettyTable()
             headers = ["ID", "Email", "Doğrulanmış", "Kayıt Tarihi"]
-            if "is_admin" in columns:
-                headers.append("Admin")
             user_table.field_names = headers
             
             for user in users:
                 user_data = list(user)
                 user_data[2] = "Evet" if user_data[2] else "Hayır"
-                if "is_admin" in columns and len(user) > 4:
-                    user_data[4] = "Evet" if user_data[4] else "Hayır"
                 user_table.add_row(user_data)
             
             print("\nKullanıcı Listesi:")
